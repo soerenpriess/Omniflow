@@ -1,0 +1,90 @@
+import type { Category } from '@/types/Category'
+
+export const imageCategory: Category = {
+  title: 'Image Tools',
+  hoverColor: '#FBBF24',
+  waveDesign: {
+    waveColors: ['rgba(255,255,0,0.3)', 'rgba(255,255,0,0.15)', 'rgba(255,255,0,0.05)'],
+    waveHeights: [10, 6, 5],
+    waveAmplitudes: [1, -2, -3],
+  },
+  cards: [
+    {
+      title: 'Image Compressor',
+      icon: 'mdi:arrow-compress',
+      description: 'Compress images with adjustable quality.',
+      path: '/image/imageCompressor',
+      isActive: true,
+    },
+    {
+      title: 'Image Crop & Rotate',
+      icon: 'mdi:crop-rotate',
+      description: 'Crop, rotate and flip images.',
+      path: '/image/imageCropRotate',
+      isActive: true,
+    },
+    {
+      title: 'GIF Frame Extractor',
+      icon: 'mdi:image-multiple',
+      description: 'Extract frames from animated GIFs.',
+      path: '/image/gifFrameExtractor',
+      isActive: true,
+    },
+    {
+      title: 'Background Remover',
+      icon: 'mdi:image-remove',
+      description: 'Remove or replace image backgrounds.',
+      path: '/image/backgroundRemover',
+      isActive: true,
+    },
+    {
+      title: 'Watermark Generator',
+      icon: 'mdi:watermark',
+      description: 'Add text watermarks to images.',
+      path: '/image/watermarkGenerator',
+      isActive: true,
+    },
+    {
+      title: 'QR-Code Generator',
+      icon: 'iconoir:qr-code',
+      description: 'Generate QR codes for URLs and text.',
+      path: '/image/qrCodeGenerator',
+      isActive: true,
+    },
+    {
+      title: 'Barcode Generator',
+      icon: 'mdi:barcode',
+      description: 'Generate barcodes in various formats.',
+      path: '/image/barcodeGenerator',
+      isActive: true,
+    },
+    {
+      title: 'Color Palette Generator',
+      icon: 'mdi:palette',
+      description: 'Generate color palettes for your designs.',
+      path: '/image/colorPaletteGenerator',
+      isActive: true,
+    },
+    {
+      title: 'Color Picker',
+      icon: 'mdi:eyedropper',
+      description: 'Pick colors from your screen.',
+      path: '/image/colorPicker',
+      isActive: true,
+    },
+    {
+      title: 'Contrast Checker',
+      icon: 'mdi:contrast-circle',
+      description: 'Check color contrast for accessibility.',
+      path: '/image/contrastChecker',
+      isActive: true,
+    },
+    {
+      title: 'Favicon Generator',
+      icon: 'mdi:star-circle',
+      description: 'Generate favicons in all required sizes.',
+      path: '/image/faviconGenerator',
+      isActive: true,
+    },
+  ],
+}

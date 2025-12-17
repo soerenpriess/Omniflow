@@ -1,0 +1,97 @@
+import type { Category } from '@/types/Category'
+
+export const cryptographyCategory: Category = {
+  title: 'Cryptography',
+  hoverColor: '#c084fc',
+  waveDesign: {
+    waveColors: ['rgba(255,0,255,0.3)', 'rgba(255,0,255,0.15)', 'rgba(255,0,255,0.05)'],
+    waveHeights: [10, 6, 5],
+    waveAmplitudes: [1, -2, -3],
+  },
+  cards: [
+    {
+      title: 'Bcrypt Generator',
+      icon: 'mdi:shield-key',
+      description: 'Easily perform basic arithmetic operations.',
+      path: '/cryptography/bcryptGenerator',
+      isActive: true,
+    },
+    {
+      title: 'AES Encrypt / Decrypt',
+      icon: 'mdi:lock',
+      description: 'Encrypt or decrypt data using AES.',
+      path: '/cryptography/aes',
+      isActive: true,
+    },
+    {
+      title: 'Base64 Encoder / Decoder',
+      icon: 'charm:file-binary',
+      description: 'Encode or decode data in Base64 format.',
+      path: '/cryptography/base64',
+      isActive: true,
+    },
+    {
+      title: 'Password Generator',
+      icon: 'material-symbols:password',
+      description: 'Generate secure passwords.',
+      path: '/cryptography/passwordGenerator',
+      isActive: true,
+    },
+    {
+      title: 'SHA Hash Generator',
+      icon: 'lucide:hash',
+      description: 'Generate SHA-256, or SHA-512 hashes.',
+      path: '/cryptography/shaGenerator',
+      isActive: true,
+    },
+    {
+      title: 'MD5 Hash Generator',
+      icon: 'mdi:fingerprint',
+      description: 'Generate MD5 hashes for checksums.',
+      path: '/cryptography/md5Generator',
+      isActive: true,
+    },
+    {
+      title: 'UUID Generator',
+      icon: 'mdi:identifier',
+      description: 'Generate unique identifiers (v1, v4).',
+      path: '/cryptography/uuidGenerator',
+      isActive: true,
+    },
+    {
+      title: 'JWT Decoder',
+      icon: 'mdi:key-variant',
+      description: 'Decode and analyze JSON Web Tokens.',
+      path: '/cryptography/jwtDecoder',
+      isActive: true,
+    },
+    {
+      title: 'Hash Identifier',
+      icon: 'mdi:fingerprint',
+      description: 'Identify hash types by format and length.',
+      path: '/cryptography/hashIdentifier',
+      isActive: true,
+    },
+    {
+      title: 'Reverse Shell Generator',
+      icon: 'mdi:console',
+      description: 'Generate reverse shell payloads for pentesting.',
+      path: '/cryptography/reverseShellGenerator',
+      isActive: true,
+    },
+    {
+      title: 'SQL Injection Generator',
+      icon: 'mdi:database-alert',
+      description: 'Generate SQL injection payloads for testing.',
+      path: '/cryptography/sqlInjectionGenerator',
+      isActive: true,
+    },
+    {
+      title: 'XSS Payload Generator',
+      icon: 'streamline-sharp:browser-code-2',
+      description: 'Generate XSS payloads with WAF bypasses.',
+      path: '/cryptography/xssPayloadGenerator',
+      isActive: true,
+    },
+  ],
+}
