@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "npm run generate-sitemap && vue-tsc -b && vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .ts,.vue --fix"
+    "lint": "eslint . --ext .ts,.vue --fix",
+    "generate-sitemap": "tsx scripts/generate-sitemap.ts"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
@@ -47,6 +48,7 @@
     "eslint-plugin-vue": "^10.1.0",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
+    "tsx": "^4.21.0",
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
     "vue-eslint-parser": "^10.1.3",
