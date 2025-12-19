@@ -88,7 +88,10 @@ const categories = computed(() => {
 })
 
 const totalToolsCount = computed(() => {
-  return categoriesData.reduce((acc, cat) => acc + cat.cards.length, 0)
+  return categoriesData.reduce((acc, cat) => {
+    const activeCards = cat.cards.filter((card) => card.isActive) // only count active cards
+    return acc + activeCards.length
+  }, 0)
 })
 
 // Scroll position state

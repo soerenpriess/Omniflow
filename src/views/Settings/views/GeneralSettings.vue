@@ -13,9 +13,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
 import { Icon } from '@iconify/vue'
 import { useKeyboardShortcuts } from '@/services/keyboardService'
+import { getCategories } from '@/data/tools/_index'
+import type { Category } from '@/types/Category'
 
 const favoriteCards = inject<any>('favoriteCards')
 
@@ -38,6 +39,15 @@ onMounted(() => {
 
   // Listen for shortcut updates
   window.addEventListener('shortcutsUpdated', loadShortcuts)
+})
+
+const categoriesData: Category[] = getCategories()
+
+const totalToolsCount = computed(() => {
+  return categoriesData.reduce((acc, cat) => {
+    const activeCards = cat.cards.filter((card) => card.isActive) // only count active cards
+    return acc + activeCards.length
+  }, 0)
 })
 
 function openEditShortcut(shortcut: any) {
@@ -151,7 +161,7 @@ const favoritesForShortcuts = computed(() => {
           </div>
           <div class="flex justify-between">
             <span class="text-muted-foreground">Total Tools:</span>
-            <span class="font-medium">30+</span>
+            <span class="font-medium">{{ totalToolsCount }}</span>
           </div>
         </div>
       </CardContent>
