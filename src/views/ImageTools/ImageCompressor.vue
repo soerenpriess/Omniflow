@@ -4,7 +4,7 @@
       Compress images to reduce file size while maintaining quality. Supports JPEG, PNG, and WebP
       formats with adjustable compression levels.
     </p>
-    <Card class="route-transition-animation w-full rounded-2xl shadow-lg">
+    <Card class="route-transition-animation w-full max-w-7xl rounded-2xl shadow-lg">
       <CardHeader class="space-y-1">
         <CardTitle class="flex items-center gap-2 text-2xl font-semibold">
           <Icon icon="mdi:arrow-compress" class="text-primary h-5 w-5 sm:h-6 sm:w-6" />

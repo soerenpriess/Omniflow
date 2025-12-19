@@ -3,20 +3,18 @@
     <p class="text-muted-foreground mb-2 w-full max-w-6xl text-center text-sm">
       Remove or replace image backgrounds with a solid color
     </p>
-    <Card class="route-transition-animation #rounded-2xl mb-4 w-full max-w-7xl shadow-lg sm:mb-8">
-      <CardHeader class="pb-2 sm:pb-3">
-        <CardTitle
-          class="flex items-center gap-1.5 text-base font-semibold sm:gap-2 sm:text-lg lg:text-xl"
-        >
-          <Icon icon="mdi:image-remove" class="text-primary h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
+    <Card class="route-transition-animation w-full max-w-7xl rounded-2xl shadow-lg">
+      <CardHeader class="space-y-1">
+        <CardTitle class="flex items-center gap-2 text-2xl font-semibold">
+          <Icon icon="mdi:image-remove" class="text-primary h-5 w-5 sm:h-6 sm:w-6" />
           Background Remover
         </CardTitle>
       </CardHeader>
-      <CardContent class="space-y-3 sm:space-y-6">
+      <CardContent>
         <!-- Upload Section -->
         <div
           v-if="!originalImage"
-          class="hover:border-primary mb-3 flex flex-col items-center justify-center rounded-lg border-2 border-dashed p-4 text-center transition-colors sm:mb-6 sm:p-8 lg:p-12"
+          class="hover:border-primary mb-6 flex flex-col items-center justify-center rounded-lg border-2 border-dashed p-8 text-center transition-colors sm:p-12"
           @drop.prevent="handleDrop"
           @dragover.prevent
         >
