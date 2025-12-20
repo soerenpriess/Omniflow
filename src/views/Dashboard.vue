@@ -8,12 +8,16 @@ import { Button } from '@/components/ui/button'
 import DashboardControlBar from '@/components/layout/mainContent/dashboardView/DashboardControlBar.vue'
 import { getCategories } from '@/data/tools/_index'
 import type { Category } from '@/types/Category'
+import { useLocalStorage } from '@vueuse/core'
 
 const router = useRouter()
 
 const hoveredCard = ref<string | null>(null)
-const sortBy = ref<'none' | 'name-asc' | 'name-desc' | 'favorites'>('none')
-const viewMode = ref<'category' | 'all'>('category')
+const sortBy = useLocalStorage<'none' | 'name-asc' | 'name-desc' | 'favorites'>(
+  'omniflow-dashboard-sort-by',
+  'none',
+)
+const viewMode = useLocalStorage<'category' | 'all'>('omniflow-dashboard-view-mode', 'category')
 
 const categoriesData: Category[] = getCategories()
 
