@@ -14,10 +14,10 @@ const router = useRouter()
 
 const hoveredCard = ref<string | null>(null)
 const sortBy = useLocalStorage<'none' | 'name-asc' | 'name-desc' | 'favorites'>(
-  'dashboard-sort-by',
+  'omniflow-dashboard-sort-by',
   'none',
 )
-const viewMode = useLocalStorage<'category' | 'all'>('dashboard-view-mode', 'category')
+const viewMode = useLocalStorage<'category' | 'all'>('omniflow-dashboard-view-mode', 'category')
 
 const categoriesData: Category[] = getCategories()
 
