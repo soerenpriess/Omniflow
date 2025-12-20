@@ -113,8 +113,9 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { Icon } from '@iconify/vue'
+import { useLocalStorage } from '@vueuse/core'
 
-const tab = ref<'encode' | 'decode'>('encode')
+const tab = useLocalStorage<'encode' | 'decode'>('omniflow-base64-tab', 'encode')
 const encodeInput = ref('')
 const encodeResult = ref('')
 const decodeInput = ref('')
