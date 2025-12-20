@@ -35,14 +35,6 @@
                 />
               </div>
             </div>
-            <Button
-              class="mt-4 h-12 w-full text-lg font-semibold"
-              @click="encodeBase64"
-              :disabled="!encodeInput"
-            >
-              <Icon icon="mdi:arrow-right-bold" class="mr-2" />
-              Encode
-            </Button>
             <div v-if="encodeResult" class="mt-4">
               <Label>Base64</Label>
               <Textarea
@@ -52,7 +44,7 @@
                 class="w-full resize-none rounded-lg border p-3 font-mono text-sm"
               />
               <div class="mt-2 flex w-full justify-end">
-                <Button size="sm" variant="outline" @click="copyToClipboard(encodeResult)">
+                <Button size="sm" variant="secondary" @click="copyToClipboard(encodeResult)">
                   {{ copied ? 'Copied!' : 'Copy' }}
                 </Button>
               </div>
@@ -76,14 +68,6 @@
                 />
               </div>
             </div>
-            <Button
-              class="mt-4 h-12 w-full text-lg font-semibold"
-              @click="decodeBase64"
-              :disabled="!decodeInput"
-            >
-              <Icon icon="mdi:arrow-left-bold" class="mr-2" />
-              Decode
-            </Button>
             <div v-if="decodeResult" class="mt-4">
               <Label>Text</Label>
               <Textarea
@@ -93,7 +77,7 @@
                 class="w-full resize-none rounded-lg border p-3 font-mono text-sm"
               />
               <div class="mt-2 flex w-full justify-end">
-                <Button size="sm" variant="outline" @click="copyToClipboard(decodeResult)">
+                <Button size="sm" variant="secondary" @click="copyToClipboard(decodeResult)">
                   {{ copied ? 'Copied!' : 'Copy' }}
                 </Button>
               </div>
@@ -113,7 +97,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { Icon } from '@iconify/vue'
-import { useLocalStorage } from '@vueuse/core'
+import { useLocalStorage, watchDebounced } from '@vueuse/core'
 
 const tab = useLocalStorage<'encode' | 'decode'>('omniflow-base64-tab', 'encode')
 const encodeInput = ref('')
@@ -122,17 +106,20 @@ const decodeInput = ref('')
 const decodeResult = ref('')
 const copied = ref(false)
 
-function encodeBase64() {
-  encodeResult.value = btoa(unescape(encodeURIComponent(encodeInput.value)))
+function encodeBase64(value: string) {
+  encodeResult.value = btoa(value)
 }
 
-function decodeBase64() {
+function decodeBase64(value: string) {
   try {
-    decodeResult.value = decodeURIComponent(escape(atob(decodeInput.value)))
+    decodeResult.value = atob(value)
   } catch {
     decodeResult.value = 'Ungültiger Base64-String!'
   }
 }
+
+watchDebounced(encodeInput, (value) => encodeBase64(value))
+watchDebounced(decodeInput, (value) => decodeBase64(value))
 
 function copyToClipboard(text: string) {
   navigator.clipboard.writeText(text)
