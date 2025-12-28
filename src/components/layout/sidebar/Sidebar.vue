@@ -106,7 +106,7 @@ const getNavCategories = computed(() => navCategories.value)
         class="hover:bg-secondary flex w-full cursor-pointer items-center justify-center rounded-lg p-2 transition-all ease-in-out hover:scale-105"
         @click="$router.push('/')"
       >
-        <img src="@/assets/logo.png" alt="Omniflow Logo" class="mr-2 h-6 w-6" />
+        <Icon icon="octicon:stack-24" width="24" height="24" class="mr-2 text-foreground" />
         <p class="text-xl">Omniflow</p>
       </div>
       <SearchForm />
