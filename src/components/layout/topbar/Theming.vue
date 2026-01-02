@@ -178,7 +178,7 @@ const setTheme = (newTheme: string) => {
           <Icon :icon="themeOption.icon" class="h-4 w-4" />
           <span>{{ themeOption.label }}</span>
           <Icon
-            v-if="theme === themeOption.value"
+            v-if="theme === themeOption.value && quickAccessThemeValues.includes(themeOption.value)"
             icon="mdi:check"
             class="text-primary ml-auto h-4 w-4"
           />

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { Label } from '@/components/ui/label'
+import { Switch } from '@/components/ui/switch'
 import {
   Dialog,
   DialogContent,
@@ -32,6 +33,7 @@ const showEditShortcutDialog = ref(false)
 const editingShortcut = ref<any>(null)
 const newShortcut = ref({ key: '', ctrl: false, shift: false, alt: false })
 const isCapturingKey = ref(false)
+const showSplashScreen = ref(true)
 let captureKeyHandler: ((event: KeyboardEvent) => void) | null = null
 
 onMounted(() => {
@@ -135,6 +137,17 @@ const favoriteCount = computed(() => favoriteCards?.value?.length || 0)
 const favoritesForShortcuts = computed(() => {
   return (favoriteCards?.value || []).slice(0, 9)
 })
+
+onMounted(() => {
+  const savedWelcomePreference = localStorage.getItem('showSplashScreen')
+  showSplashScreen.value = savedWelcomePreference !== 'false'
+})
+
+function toggleSplashScreen(value: boolean) {
+  showSplashScreen.value = value
+  localStorage.setItem('showSplashScreen', value.toString())
+  emit('showFeedback', `Welcome screen ${value ? 'enabled' : 'disabled'}`, 'success')
+}
 </script>
 
 <template>
@@ -146,7 +159,7 @@ const favoritesForShortcuts = computed(() => {
       </CardHeader>
       <CardContent class="space-y-4">
         <div class="flex items-center gap-4">
-          <img src="@/assets/logo.png" alt="Omniflow Logo" class="h-16 w-16" />
+          <Icon icon="octicon:stack-24" class="text-foreground h-16 w-16" />
           <div>
             <h3 class="text-xl font-semibold">Omniflow</h3>
             <p class="text-muted-foreground text-sm">All-in-One Tool Suite</p>
@@ -163,6 +176,27 @@ const favoritesForShortcuts = computed(() => {
             <span class="text-muted-foreground">Total Tools:</span>
             <span class="font-medium">{{ totalToolsCount }}</span>
           </div>
+        </div>
+      </CardContent>
+    </Card>
+
+    <Card>
+      <CardHeader>
+        <CardTitle>Welcome Screen</CardTitle>
+        <CardDescription>Configure the startup animation</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div class="flex items-center justify-between">
+          <div class="space-y-0.5">
+            <Label class="text-base">Show Welcome Animation</Label>
+            <p class="text-muted-foreground text-sm">
+              Display the animated welcome screen when opening the app
+            </p>
+          </div>
+          <Switch
+            :checked="showSplashScreen"
+            @update:checked="toggleSplashScreen"
+          />
         </div>
       </CardContent>
     </Card>
