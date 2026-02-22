@@ -190,7 +190,7 @@ function md5(str: string): string {
   function convertToWordArray(str: string): number[] {
     const wordArray: number[] = []
     for (let i = 0; i < str.length * 8; i += 8) {
-      wordArray[i >> 5] |= (str.charCodeAt(i / 8) & 0xff) << i % 32
+      wordArray[i >> 5] |= (str.charCodeAt(i / 8) & 0xff) << (i % 32)
     }
     return wordArray
   }
@@ -208,7 +208,7 @@ function md5(str: string): string {
   const x = convertToWordArray(utf8Encode)
   const len = utf8Encode.length * 8
 
-  x[len >> 5] |= 0x80 << len % 32
+  x[len >> 5] |= 0x80 << (len % 32)
   x[(((len + 64) >>> 9) << 4) + 14] = len
 
   let a = 1732584193

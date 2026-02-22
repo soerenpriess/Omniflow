@@ -8,6 +8,7 @@ import { textRoutes } from './text'
 import { imageToolsRoutes } from './imageTools'
 import { otherRoutes } from './other'
 import { developerToolsRoutes } from './developerTools'
+import { legalRoutes } from './legal'
 
 const routes = [
   {
@@ -29,6 +30,7 @@ const routes = [
   ...imageToolsRoutes,
   ...otherRoutes,
   ...developerToolsRoutes,
+  ...legalRoutes,
 ]
 
 const router = createRouter({
