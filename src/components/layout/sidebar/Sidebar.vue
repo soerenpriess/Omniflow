@@ -126,13 +126,57 @@ const getNavCategories = computed(() => navCategories.value)
     </SidebarContent>
     <SidebarFooter>
       <div class="space-y-2">
-        <div
-          @click="$router.push('/settings')"
-          class="hover:bg-accent flex w-full cursor-pointer items-center gap-3 rounded-lg p-3 transition-all hover:scale-[1.02]"
-        >
-          <Icon icon="mdi:cog" width="20" height="20" class="text-muted-foreground" />
-          <span class="text-sm">Settings</span>
+        <!-- Legal Links -->
+        <div class="space-y-1">
+          <div
+            @click="$router.push('/about')"
+            class="hover:bg-accent flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2 transition-all hover:scale-[1.02]"
+          >
+            <Icon
+              icon="mdi:information-outline"
+              width="18"
+              height="18"
+              class="text-muted-foreground"
+            />
+            <span class="text-muted-foreground text-xs">About</span>
+          </div>
+          <div
+            @click="$router.push('/privacy')"
+            class="hover:bg-accent flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2 transition-all hover:scale-[1.02]"
+          >
+            <Icon
+              icon="mdi:shield-lock-outline"
+              width="18"
+              height="18"
+              class="text-muted-foreground"
+            />
+            <span class="text-muted-foreground text-xs">Privacy Policy</span>
+          </div>
+          <div
+            @click="$router.push('/imprint')"
+            class="hover:bg-accent flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2 transition-all hover:scale-[1.02]"
+          >
+            <Icon
+              icon="mdi:file-document-outline"
+              width="18"
+              height="18"
+              class="text-muted-foreground"
+            />
+            <span class="text-muted-foreground text-xs">Imprint</span>
+          </div>
         </div>
+
+        <!-- Settings -->
+        <div class="border-border/50 border-t pt-2">
+          <div
+            @click="$router.push('/settings')"
+            class="hover:bg-accent flex w-full cursor-pointer items-center gap-3 rounded-lg p-3 transition-all hover:scale-[1.02]"
+          >
+            <Icon icon="mdi:cog" width="20" height="20" class="text-muted-foreground" />
+            <span class="text-sm">Settings</span>
+          </div>
+        </div>
+
         <div class="border-border/50 flex items-center justify-center gap-4 border-t pt-2">
           <a
             href="https://github.com/soerenpriess/Omniflow"
